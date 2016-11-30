@@ -1,0 +1,1 @@
+programDownloadFile.vi includes information on using the programUploadFile function.

@@ -1,0 +1,1 @@
+DR_DataRecord_Example(_onRecord).vi includes information on using the sourceValue function with the onRecord event.

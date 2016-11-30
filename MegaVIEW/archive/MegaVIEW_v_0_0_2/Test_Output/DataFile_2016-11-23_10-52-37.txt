@@ -1,0 +1,19 @@
+# Gaussmeter 1
+# Probe Type: 51.000000
+# Probe Serial Number: 58584     
+# Probe Sensitivity: 0.900000
+# 
+# Gaussmeter 2
+# Probe Type: 41.000000
+# Probe Serial Number: H056934   
+# Probe Sensitivity: 0.000000
+# 
+# Gaussmeter 3
+# Probe Type: 51.000000
+# Probe Serial Number: 58557     
+# Probe Sensitivity: 0.890000
+# 
+t/F:B1:B2:B3:I:T
+0.002740	0.000000	0.000280	-0.000020	-0.000220
+0.252826	0.000000	0.000280	-0.000020	-0.000230
+0.502837	0.000000	0.000290	-0.000020	-0.000230

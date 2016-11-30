@@ -1,0 +1,1 @@
+QR_DataRecord_Example.vi includes information on using the record function with QR.

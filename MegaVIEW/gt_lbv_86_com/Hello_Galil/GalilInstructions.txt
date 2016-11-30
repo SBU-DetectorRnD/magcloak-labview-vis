@@ -1,0 +1,77 @@
+CONNECTING TO A GALIL CONTROLLER FROM NATIONAL INSTRUMENTS LABVIEW VERSION 8.6 USING THE GALILTOOLS COM EXTENSION
+
+(1) Install GalilTools(-Lite or Full) Version 1.3.0.0 or Newer
+http://www.galilmc.com/products/software/galiltools.html
+
+(2) Open National Instruments Labview Version 11.0, select "Blank VI".
+
+(3) From the File menu choose "Save As" ('File/Save As') and name the file Galil.
+
+(4) Choose 'Window/Show Block Diagram'.
+
+(5) In the Functions Palette ('View/Functions Palette'), expand "Connectivity" then "ActiveX".  
+(5a) Drop the "Automation Open" function onto Galil.vi Block Diagram.
+
+(6) Right-clink on the Automation Open function and choose 'Select ActiveX Class/Browse'.  
+(6a) In the drop down box choose "Galil Version x.x" (n.n is the version number, ex Galil Version 0.3).  Highlight the Galil Object, click OK.
+
+-Recommended for beginners to Labview- Right click on the Automation Open function, choose 'Visible Items/Label'.  This can be done with most labview blocks/functions.
+
+-See Note1-
+
+(7) Drop a "Property Node" (Functions Palette/Connectivity/ActiveX) onto the Block Diagram to the right of the Automation Open function.
+(7a) Connect the "Automation Refnum" terminal of the Automation Open funtion to the "reference" terminal on the Property Node. (The text of the Property Node should change to "IGalil" from "Automation".)
+(7b) Left-click on the Property element of the Property Node and choose 'address'.
+(7c) Right-clink on the Property element of the Property Node and choose 'Change to Write'.
+
+(8) Drop an "Invoke Node" (Functions Palette/Connectivity/ActiveX) onto the Block Diagram to the right of the Property Node.
+(8a) Connect the "reference out" terminal of the Property Node (top right terminal, mouseover will show Galil.IGalil) to the "reference" terminal of the Invoke Node. (The text of the Invoke Node should change to "IGalil" from "Automation".)
+(8b) Left-click on the Method element of the Invoke Node and choose 'connection'.
+
+(9) Drop an "Invoke Node" (Functions Palette/Connectivity/ActiveX) onto the Block Diagram to the right of the Invoke Node.
+(9a) Connect the "reference out" terminal of the last Invoke Node (top right terminal, mouseover will show Galil.IGalil) to the "reference" terminal of the Invoke Node. (The text of the Invoke Node should change to "IGalil" from "Automation".)
+(9b) Left-click on the Method element of the Invoke Node and choose 'libraryVersion'.
+
+(10) Drop an "Invoke Node" (Functions Palette/Connectivity/ActiveX) onto the Block Diagram to the right of the Invoke Node.
+(10a) Connect the "reference out" terminal of the last Invoke Node (top right terminal, mouseover will show Galil.IGalil) to the "reference" terminal of the Invoke Node. (The text of the Invoke Node should change to "IGalil" from "Automation".)
+(10b) Left-click on the Method element of the Invoke Node and choose 'command'.
+(10c) Drop a "String Constant" (Functions Palette/Programming/String) onto the Block Diagram.
+(10d) Insert the text "MG TIME" (quotes removed) into the String Constant
+(10e) Connect the output of the string constant to the command input on the command Propert Node.
+
+(11) Goto the Galil.vi Front Panel window.  In the Controls Palette ('View/Controls Palette'), expand "Modern" then "String&Path".
+(11a) Drop the "String Control" block onto Front Panel.
+(11b) Rename "String" to "Connection String:"
+(11c) Leave the string box empty.  This can later be changed to the connection string of the controller (192.168.1.100, GALILPCI1, COM 19200 etc). (See Note2)
+
+(12) Drop the "String Indicator" (Controls Palette/Modern/String&Path) onto the Front Panel.
+(12a) Rename "String" to "Connected To:"
+(12b) Increase the size of the string box by ~double the length and width.
+
+(13) Drop the "String Indicator" (Controls Palette/Modern/String&Path) onto the Front Panel.
+(13a) Rename "String" to "Library Version:"
+(13b) Increase the size of the string box by ~double the length.
+
+(14) Drop the "String Indicator" (Controls Palette/Modern/String&Path) onto the Front Panel.
+(14a) Rename "String" to "MG TIME"
+
+(15) Drop an "Error Out.ctl" control (Controls Palette/Classic/Classic Array, Matrix & Cluster) onto the Front Panel.
+
+(16) Goto the Galil.vi Block Diagram window.
+
+(17) Connect the "error out" terminal of the Automation Open function to the "error in" terminal of the 'address' Property Node.
+(17a) Connect the "error out" terminal of the 'address' Property Node to the "error in" terminal of the 'connection' Invoke Node.
+(17b) Connect the "error out" terminal of the 'connection' Invoke Node to the "error in" terminal of the 'libraryVersion' Invoke Node.
+(17c) Connect the "error out" terminal of the 'libraryVersion' Invoke Node to the "error in" terminal of the 'command' Invoke Node.
+(17c) Connect the "error out" terminal of the 'command' Invoke Node to the terminal on the 'error out' block.
+
+(18) Connect the terminal of the 'Connections String:' block to the "address" terminal on the Property Node.
+(18a) Connect the terminal of the 'Connected To:' block to the "connection" terminal on the connection Invoke Node.
+(18b) Connect the terminal of the 'Library Version:' block to the "libraryVersion" terminal on the libraryVerion Invoke Node.
+(18c) Connect the terminal of the 'MG TIME' block to the "command" output terminal on the command Invoke Node.
+
+(19) Goto the Front Panel window.  Choose 'Operate/Run' to run the VI.
+
+Note1: It may be necessary in some applications to use sequence blocks in order to govern the sequence of events/commands that are sent to the controller.  
+
+Note2: If the Connection String string control is left blank, the GalilTools connection dialog will be displayed.  If a valid connection string is specified (ex COM1 19200), the program will attempt this connection directly.

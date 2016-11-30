@@ -1,0 +1,1 @@
+address.vi includes information on using the libraryVersion function.

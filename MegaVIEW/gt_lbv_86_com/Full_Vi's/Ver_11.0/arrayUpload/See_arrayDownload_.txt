@@ -1,0 +1,1 @@
+arrayDownload.vi includes information on using the arrayUpload function.
