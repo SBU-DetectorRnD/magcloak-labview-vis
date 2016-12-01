@@ -5,3 +5,8 @@ gt_lbv_86_com : contains software for Argonne's moveable stage.
 
 LabVIEW_tests : contains LabVIEW VI's that were used to experiment with
     different functions prior to including them in MegaVIEW.
+
+VIs : contains VI's that are part of the current version of MegaVIEW (primary
+    files "LabViewVIs\MegaVIEW\MegaVIEW.lvproj",
+    "LabViewVIs\MegaVIEW\MegaVIEW.lvlps", and
+    "LabViewVIs\MegaVIEW\MegaVIEW.aliases").
