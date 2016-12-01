@@ -12,8 +12,8 @@
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="gaussmeter_measure.vi" Type="VI" URL="../gaussmeter_measure.vi"/>
 		<Item Name="gaussmeter_setup.vi" Type="VI" URL="../gaussmeter_setup.vi"/>
+		<Item Name="main.vi" Type="VI" URL="../main.vi"/>
 		<Item Name="open_output.vi" Type="VI" URL="../open_output.vi"/>
-		<Item Name="timed.vi" Type="VI" URL="../timed.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="instr.lib" Type="Folder">
 				<Item Name="Lake Shore 425.lvlib" Type="Library" URL="/&lt;instrlib&gt;/Lake Shore 425/Lake Shore 425.lvlib"/>
