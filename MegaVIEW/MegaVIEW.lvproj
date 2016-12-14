@@ -13,6 +13,7 @@
 		<Item Name="gaussmeter_measure.vi" Type="VI" URL="../gaussmeter_measure.vi"/>
 		<Item Name="gaussmeter_setup.vi" Type="VI" URL="../gaussmeter_setup.vi"/>
 		<Item Name="main.vi" Type="VI" URL="../main.vi"/>
+		<Item Name="main2.vi" Type="VI" URL="../main2.vi"/>
 		<Item Name="multimeter_measure.vi" Type="VI" URL="../multimeter_measure.vi"/>
 		<Item Name="multimeter_setup.vi" Type="VI" URL="../multimeter_setup.vi"/>
 		<Item Name="open_output.vi" Type="VI" URL="../open_output.vi"/>
